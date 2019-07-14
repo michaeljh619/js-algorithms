@@ -2,9 +2,9 @@
 Sort = require('./Sort');
 
 // Bubble Sort constructor
-const BubbleSort = function(array){
+var BubbleSort = function(array){
     Sort.call(this, array);
-}
+};
 
 // create child of Sort and set constructor
 BubbleSort.prototype = Object.create(Sort);
@@ -32,6 +32,6 @@ BubbleSort.prototype.sort = function(){
             this.arrray[i-1] = prev;
         }
     }
-}
+};
 
 module.exports.BubbleSort = BubbleSort;
