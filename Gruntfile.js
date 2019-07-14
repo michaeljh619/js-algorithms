@@ -20,7 +20,7 @@ module.exports = function(grunt){
         watch: {
             scripts:{
                 files: '**/*.js',
-                tasks: ['jshint'],
+                tasks: ['mochaTest', 'jshint'],
             },
         },
     });
