@@ -2,8 +2,8 @@
 Sort = require('./Sort');
 
 // Bubble Sort constructor
-var BubbleSort = function(array){
-    Sort.call(this, array);
+var BubbleSort = function(){
+    Sort.call(this);
 };
 
 // create child of Sort and set constructor
@@ -11,7 +11,10 @@ BubbleSort.prototype = Object.create(Sort);
 BubbleSort.prototype.constructor = BubbleSort;
 
 // override sort method
-BubbleSort.prototype.sort = function(){
+BubbleSort.prototype.sort = function(array){
+    // set array
+    this.array = array;
+
     // pass through array n amount of times, where n is length
     for(var passes = 0; passes < this.array.length; passes++){
         // perform one pass of BubbleSort
@@ -29,9 +32,17 @@ BubbleSort.prototype.sort = function(){
 
             // set back to array
             this.array[i] = curr;
-            this.arrray[i-1] = prev;
+            this.array[i-1] = prev;
         }
     }
+
+    // return
+    return this.array;
 };
 
-module.exports.BubbleSort = BubbleSort;
+// return name of sort on toString
+BubbleSort.prototype.toString = function(){
+    return "BubbleSort";
+};
+
+module.exports = BubbleSort;
