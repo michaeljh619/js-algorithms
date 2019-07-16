@@ -5,9 +5,10 @@ var expect = chai.expect;
 
 // Sort types
 var BubbleSort = require('../BubbleSort');
+var MergeSort = require('../MergeSort');
 
 // add all sort constructors to array to test
-var sortTypes = [new BubbleSort()];
+var sortTypes = [new BubbleSort(), new MergeSort()];
 
 /*
  * Sorting Tests
