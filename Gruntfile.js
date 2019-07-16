@@ -5,6 +5,8 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-mocha-test');
     // grunt watch
     grunt.loadNpmTasks('grunt-contrib-watch');
+    // grunt clear terminal
+    grunt.loadNpmTasks('grunt-clear');
 
     // config
     grunt.initConfig({
@@ -20,11 +22,11 @@ module.exports = function(grunt){
         watch: {
             scripts:{
                 files: '**/*.js',
-                tasks: ['mochaTest', 'jshint'],
+                tasks: ['clear', 'mochaTest', 'jshint'],
             },
         },
     });
 
     // default task
-    grunt.registerTask('default', ['mochaTest', 'jshint', 'watch']);
+    grunt.registerTask('default', ['clear', 'mochaTest', 'jshint', 'watch']);
 };
