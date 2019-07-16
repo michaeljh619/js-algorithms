@@ -45,6 +45,7 @@ describe('Sorting', function(){
                 data.forEach(function(a){
                     var unsorted = a[0];
                     var answer = a[1];
+                    sortType.setLeastToGreatest(true);
                     var sorted = sortType.sort(unsorted);
 
                     expect(sorted).to.eql(answer);
@@ -63,7 +64,8 @@ describe('Sorting', function(){
                 data.forEach(function(a){
                     var unsorted = a[0];
                     var answer = a[1];
-                    var sorted = sortType.sort(unsorted, false);
+                    sortType.setLeastToGreatest(false);
+                    var sorted = sortType.sort(unsorted);
 
                     expect(sorted).to.eql(answer);
                 });

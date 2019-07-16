@@ -4,19 +4,16 @@ Sort = require('./Sort');
 var optArg = require('../tools/OptionalArgument');
 
 // Bubble Sort constructor
-var BubbleSort = function(){
-    Sort.call(this);
+var BubbleSort = function(leastToGreatest){
+    Sort.call(this, leastToGreatest);
 };
 
 // create child of Sort and set constructor
-BubbleSort.prototype = Object.create(Sort);
+BubbleSort.prototype = Object.create(Sort.prototype);
 BubbleSort.prototype.constructor = BubbleSort;
 
 // override sort method
-BubbleSort.prototype.sort = function(array, leastToGreatest){
-    // l to g is an optional param
-    leastToGreatest = optArg(leastToGreatest, true);
-
+BubbleSort.prototype.sort = function(array){
     // set array
     this.array = array;
 
@@ -29,14 +26,7 @@ BubbleSort.prototype.sort = function(array, leastToGreatest){
             var prev = this.array[i-1];
             
             // swap if not ordered right
-            var swap = false;
-            if(leastToGreatest && prev > curr){
-                swap = true;
-            }
-            else if(!leastToGreatest && prev < curr){
-                swap = true;
-            }
-            if(swap){
+            if(this.shouldSwap(prev, curr)){
                 var tmp = curr;
                 curr = prev;
                 prev = tmp;
