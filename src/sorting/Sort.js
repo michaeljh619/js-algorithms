@@ -1,3 +1,5 @@
+var optArg = require('../tools/OptionalArgument');
+
 // Base Class
 var Sort = function(){
     this.array = [];
@@ -5,9 +7,7 @@ var Sort = function(){
 
 Sort.prototype.sort = function(array, leastToGreatest){
     // l to g is an optional param
-    if(leastToGreatest === undefined){
-        leastToGreatest = true;
-    }
+    leastToGreatest = optArg(leastToGreatest, true);
 
     this.array = array;
     return this.array;

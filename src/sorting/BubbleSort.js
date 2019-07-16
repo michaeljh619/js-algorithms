@@ -1,5 +1,7 @@
 // requires Base class
 Sort = require('./Sort');
+// requires opt arg function from tools
+var optArg = require('../tools/OptionalArgument');
 
 // Bubble Sort constructor
 var BubbleSort = function(){
@@ -12,10 +14,8 @@ BubbleSort.prototype.constructor = BubbleSort;
 
 // override sort method
 BubbleSort.prototype.sort = function(array, leastToGreatest){
-    // optional param, set to true if not set
-    if(leastToGreatest === undefined){
-        leastToGreatest = true;
-    }
+    // l to g is an optional param
+    leastToGreatest = optArg(leastToGreatest, true);
 
     // set array
     this.array = array;
