@@ -11,7 +11,12 @@ BubbleSort.prototype = Object.create(Sort);
 BubbleSort.prototype.constructor = BubbleSort;
 
 // override sort method
-BubbleSort.prototype.sort = function(array){
+BubbleSort.prototype.sort = function(array, leastToGreatest){
+    // optional param, set to true if not set
+    if(leastToGreatest === undefined){
+        leastToGreatest = true;
+    }
+
     // set array
     this.array = array;
 
@@ -24,7 +29,14 @@ BubbleSort.prototype.sort = function(array){
             var prev = this.array[i-1];
             
             // swap if not ordered right
-            if(prev > curr){
+            var swap = false;
+            if(leastToGreatest && prev > curr){
+                swap = true;
+            }
+            else if(!leastToGreatest && prev < curr){
+                swap = true;
+            }
+            if(swap){
                 var tmp = curr;
                 curr = prev;
                 prev = tmp;

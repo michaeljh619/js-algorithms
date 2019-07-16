@@ -19,8 +19,11 @@ describe('Sorting', function(){
             var sortName = sortType.toString();
             it(sortName + ' will return an empty array', function(){
                 var empty = [];
-                var result = sortType.sort(empty);
 
+                var result = sortType.sort(empty);
+                assert.lengthOf(result, 0);
+
+                result = sortType.sort(empty, false);
                 assert.lengthOf(result, 0);
             });
         });
@@ -29,7 +32,8 @@ describe('Sorting', function(){
     describe('Sorting with non-empty arrays', function(){
         sortTypes.forEach(function(sortType){
             var sortName = sortType.toString();
-            it(sortName + ' will return a sorted array', function(){
+            it(sortName + ' will return a least to greatest sorted array', 
+               function(){
                 // array of arrays to sort
                 var data = [
                     [[1], [1]],
@@ -42,6 +46,24 @@ describe('Sorting', function(){
                     var unsorted = a[0];
                     var answer = a[1];
                     var sorted = sortType.sort(unsorted);
+
+                    expect(sorted).to.eql(answer);
+                });
+            });
+            it(sortName + ' will return a greatest to least sorted array', 
+               function(){
+                // array of arrays to sort
+                var data = [
+                    [[1], [1]],
+                    [[3,1], [3,1]],
+                    [[1,2], [2,1]],
+                    [[5, 17, 12], [17,12,5]],
+                    [[4, 5, 1, 2], [5,4,2,1]]
+                ];
+                data.forEach(function(a){
+                    var unsorted = a[0];
+                    var answer = a[1];
+                    var sorted = sortType.sort(unsorted, false);
 
                     expect(sorted).to.eql(answer);
                 });
