@@ -1,5 +1,6 @@
 # vs code
 *.code-workspace
+.vscode
 
 # vim
 *.swp
