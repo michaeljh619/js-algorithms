@@ -18,7 +18,7 @@
   "homepage": "https://github.com/michaeljh619/js-algorithms#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "grunt": "^1.0.4",
+    "grunt": "^1.5.2",
     "grunt-clear": "^0.2.1",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",
